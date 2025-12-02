@@ -1,9 +1,22 @@
+/**
+ * MuseumCard Component
+ *
+ * Displays a summary card for a specific museum in the discovery grid.
+ *
+ * Features:
+ * - Semantic <button> for keyboard accessibility.
+ * - Hover effects for visual engagement.
+ * - Haptic feedback integration.
+ */
+
 import React from 'react';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { Museum } from '../types';
 
 interface MuseumCardProps {
+  /** The museum data object to display */
   museum: Museum;
+  /** Callback fired when the user selects this museum */
   onClick: (museum: Museum) => void;
 }
 

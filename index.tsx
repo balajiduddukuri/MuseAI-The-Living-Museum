@@ -1,3 +1,11 @@
+/**
+ * Application Entry Point
+ *
+ * This file acts as the bootstrapper for the React application.
+ * It locates the root DOM node and mounts the main <App /> component.
+ * It also wraps the app in StrictMode for development best practices.
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

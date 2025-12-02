@@ -1,3 +1,14 @@
+/**
+ * Gemini AI Service Layer
+ *
+ * This module handles all interactions with the Google Gemini API.
+ * It provides an abstraction layer for:
+ * 1. Text-to-Image Prompt Refinement (Gemini 2.5 Flash)
+ * 2. Image Generation (Gemini 2.5 Flash Image / Nano Banana)
+ * 3. Image Analysis & Description (Vision capabilities)
+ * 4. Text-to-Speech Generation (Gemini 2.5 Flash TTS)
+ */
+
 import { GoogleGenAI } from "@google/genai";
 import { Theme } from "../types";
 
@@ -16,6 +27,11 @@ const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 /**
  * Generates a creative prompt based on user input and a museum theme.
+ *
+ * @param userInput - The raw idea from the user (e.g., "a cat").
+ * @param theme - The selected museum theme object.
+ * @param museumName - The name of the museum context.
+ * @returns A polished, descriptive paragraph suitable for image generation.
  */
 export const generateRefinedPrompt = async (
   userInput: string,
@@ -51,6 +67,10 @@ export const generateRefinedPrompt = async (
 
 /**
  * Generates an image based on a prompt.
+ * Uses the 'gemini-2.5-flash-image' model.
+ *
+ * @param prompt - The detailed image generation prompt.
+ * @returns A base64 encoded string of the image data, or null if failed.
  */
 export const generateThemeImage = async (prompt: string): Promise<string | null> => {
   try {
@@ -90,6 +110,12 @@ export const generateThemeImage = async (prompt: string): Promise<string | null>
 
 /**
  * Generates a short museum guide description for an image.
+ * Uses Vision capabilities to analyze the provided image.
+ *
+ * @param imageBase64DataUrl - The image data URL.
+ * @param museumName - Context for the persona.
+ * @param themeName - Context for the analysis.
+ * @returns A text description spoken by the "guide".
  */
 export const generateMuseumGuideDescription = async (
   imageBase64DataUrl: string, 
@@ -123,7 +149,12 @@ export const generateMuseumGuideDescription = async (
 };
 
 /**
- * Generates social media hashtags for an image.
+ * Generates social media hashtags for an image using Vision analysis.
+ *
+ * @param imageBase64DataUrl - The generated artwork.
+ * @param museumName - Context for tags.
+ * @param themeName - Context for tags.
+ * @returns An array of string hashtags.
  */
 export const generateSocialHashtags = async (
   imageBase64DataUrl: string,
@@ -161,6 +192,9 @@ export const generateSocialHashtags = async (
 
 /**
  * Generates speech from text using Gemini TTS.
+ *
+ * @param text - The text content to speak.
+ * @returns Base64 encoded audio data.
  */
 export const generateSpeech = async (text: string): Promise<string | null> => {
   try {
@@ -193,6 +227,9 @@ export const generateSpeech = async (text: string): Promise<string | null> => {
 
 /**
  * Plays base64 encoded audio in the browser.
+ * Handles AudioContext creation and decoding.
+ *
+ * @param base64Audio - The raw base64 audio string (PCM/WAV data).
  */
 let audioContext: AudioContext | null = null;
 

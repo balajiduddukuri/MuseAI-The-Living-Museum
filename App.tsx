@@ -1,3 +1,13 @@
+/**
+ * Main Application Container
+ *
+ * This component acts as the backbone of the application, handling:
+ * 1. Global State: Current view ('DISCOVER' | 'MUSEUM_DETAIL' | 'STUDIO'), selected data.
+ * 2. Routing/Navigation: Manages conditional rendering of views.
+ * 3. Accessibility Features: High Contrast Mode, Skip Links, ARIA landmarks.
+ * 4. Search Filter: Filters the museum list.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { Compass, BookOpen, User, Github, Search, Eye } from 'lucide-react';
 import { MUSEUMS } from './constants';

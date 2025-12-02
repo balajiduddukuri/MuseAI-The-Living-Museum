@@ -1,3 +1,20 @@
+/**
+ * Studio Component
+ *
+ * The primary workspace for users to co-create art with AI.
+ *
+ * Key Functionalities:
+ * - Input Prompt: Accepts user ideas for artwork.
+ * - Prompt Refinement: Uses Gemini Text generation to enhance simple ideas into artistic prompts.
+ * - Image Generation: Uses Gemini Image generation to create visual assets.
+ * - Audio Guide: Uses Gemini Vision + TTS to describe the generated art.
+ * - Social Sharing: Generates hashtags and sharable links.
+ *
+ * Accessibility:
+ * - Manages ARIA live regions for process status (generating, reading, etc.).
+ * - Haptic feedback on primary interactions.
+ */
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Sparkles, RefreshCw, Share2, Download, Wand2, ArrowLeft, Volume2, Copy, Hash } from 'lucide-react';
 import { Museum, Theme } from '../types';

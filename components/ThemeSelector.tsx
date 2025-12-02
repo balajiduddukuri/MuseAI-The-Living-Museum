@@ -1,9 +1,23 @@
+/**
+ * ThemeSelector Component
+ *
+ * Renders a grid of available artistic themes for a selected museum.
+ * Each theme acts as an entry point to the generation studio.
+ *
+ * Accessibility:
+ * - Uses semantic <button> elements.
+ * - Supports keyboard navigation.
+ * - Includes ARIA roles for list structure.
+ */
+
 import React from 'react';
 import { Palette, Info } from 'lucide-react';
 import { Theme } from '../types';
 
 interface ThemeSelectorProps {
+  /** Array of available themes for the current museum */
   themes: Theme[];
+  /** Callback fired when a theme is selected */
   onSelect: (theme: Theme) => void;
 }
 

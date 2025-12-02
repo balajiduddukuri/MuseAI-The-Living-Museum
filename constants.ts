@@ -1,3 +1,13 @@
+/**
+ * Static Data Configuration
+ *
+ * This file acts as the "database" for the frontend-only MVP.
+ * It stores the list of supported museums, their metadata, and the
+ * curated themes associated with each one.
+ *
+ * In a full-stack implementation, this data would likely be fetched from a backend API.
+ */
+
 import { Museum } from './types';
 
 export const MUSEUMS: Museum[] = [
