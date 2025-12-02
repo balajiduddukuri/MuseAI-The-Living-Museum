@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MuseAI: An accessible digital art museum experience." />
+    <title>MuseAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              museum: {
+                900: '#1a1a1a',
+                800: '#262626',
+                700: '#404040',
+                accent: '#e11d48', // Rose-600
+                gold: '#d4af37',
+              }
+            },
+            fontFamily: {
+              serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+              sans: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f0f0f;
+        color: #e5e5e5;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      /* Custom scrollbar for modern feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #404040;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #525252;
+      }
+
+      /* High Contrast Mode Overrides */
+      body.high-contrast {
+        background-color: #000000 !important;
+        color: #ffff00 !important;
+      }
+      body.high-contrast nav,
+      body.high-contrast footer,
+      body.high-contrast div,
+      body.high-contrast button,
+      body.high-contrast input,
+      body.high-contrast textarea,
+      body.high-contrast span,
+      body.high-contrast p,
+      body.high-contrast h1,
+      body.high-contrast h2,
+      body.high-contrast h3,
+      body.high-contrast h4 {
+        background-color: #000000 !important;
+        color: #ffff00 !important;
+        border-color: #ffff00 !important;
+      }
+      body.high-contrast button,
+      body.high-contrast a, 
+      body.high-contrast input,
+      body.high-contrast textarea {
+        border: 2px solid #ffff00 !important;
+      }
+      body.high-contrast .text-transparent {
+        color: #ffff00 !important;
+        -webkit-text-fill-color: #ffff00 !important;
+      }
+      body.high-contrast img {
+        filter: grayscale(100%) contrast(120%);
+        border: 2px solid #ffff00 !important;
+      }
+      body.high-contrast *:focus-visible {
+        outline: 4px solid #00ff00 !important;
+        outline-offset: 4px !important;
+        box-shadow: 0 0 0 4px #000000 !important;
+      }
+      
+      /* Standard Focus visible for accessibility */
+      *:focus-visible {
+        outline: 3px solid #e11d48;
+        outline-offset: 2px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
